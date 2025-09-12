@@ -1,73 +1,113 @@
-# 🩺 MediPath AI
+# 🩺 MediPath-AI
+# Guiding Smarter Healthcare in Low-Resource Settings.
+![image1](images\image_04.png)
+![image2](images\image_02.png)
 
-# Guiding Smarter Healthcare in Low-Resource Settings
 
-### Note: This Project is still in its development stages
+## 📖 Overview.
 
-## 📖 Overview
+MediPath AI is an AI-powered Multilingual healthcare assistant designed to support patients, nurses and doctors in low-resource settings.The platform leverages Generative AI (via Groq API), Natural Language Processing (NLP), and knowledge-driven pipelines to provide:
+- Accessible medical insights
+- Decision support for health workers
+- Personalized health guidance for patients
 
-MediPath AI is an AI-powered multilingual healthcare assistant designed to support patients, nurses, and doctors in low-resource settings. 
-The platform leverages Natural Language Processing (NLP), Machine Learning, Generative AI and knowledge-driven pipelines to provide accessible medical insights, decision support, and personalized health guidance.
+By integrating Streamlit for rapid deployment and Supabase for authentication & data storage, MediPath AI aims to bridge the healthcare gap for underserved communities.
 
-By integrating lightweight deployment strategies and offline-first features, MediPath AI aims to bridge the healthcare gap for underserved communities, empowering frontline workers and patients with reliable, contextualized information.
+## 🎯 Objectives.
+Provide intelligent analysis of medical test reports with actionable recommendations. 
+Optimize for low-bandwidth, low-resource environments. 
+Ensure security, privacy, and trustworthiness in handling sensitive health data.
 
-## 🎯 Objective
+## ❗ Problem Statement.
+Millions of people in low-resource settings face:
+- Limited access to healthcare professionals
+- Inadequate digital infrastructure
+- Delayed diagnosis & treatment
 
-To build an AI-enabled healthcare assistant that supports multilingual communication between patients and medical staff. 
-To provide intelligent analysis of medical records and test results with actionable recommendations. 
-To enable low-bandwidth, low-resource usage, making healthcare insights accessible in underserved regions. 
-To ensure security, privacy, and trustworthiness in handling sensitive health data.
-
-## 🩸 Problem Statement
-Millions of people in low-resource settings face challenges such as: 
-- Limited access to healthcare professionals due to shortages. 
-- Language barriers that hinder communication between patients and providers. 
-- Inadequate digital infrastructure, making most modern health solutions unusable. 
-- Delayed diagnosis and treatment, especially for chronic or preventable conditions. 
-
-MediPath AI seeks to address these challenges by offering a multilingual, lightweight, and secure AI-driven solution that bridges the healthcare access gap.
-
-### (Proposed Approach)
-
-## 🔬 Methodology
-
-The MediPath AI system will be built around an agent-based architecture with the following key components: 
-1. Data Processing & Knowledge Base. 
-Collects and preprocesses medical reports, patient histories, and community health data. 
-Builds a knowledge base for in-context, role-specific health guidance.
-
-2. Natural Language Processing (NLP). 
-Enables multilingual text and voice inputs (patients, nurses, doctors). 
-Supports question-answering and symptom-based guidance.
-
-3. AI Models & Reasoning. 
-Multi-model cascade system for report analysis, summarization, and recommendations. 
-In-context learning to improve advice based on previous interactions.
-
-4. Interface & User Access.
-Mobile-friendly and responsive UI designed for community health workers. 
-Role-based access for patients, nurses, and doctors. 
-Secure session management and history tracking. 
-Low-Resource Optimization. 
-Offline-first deployment for areas with limited connectivity. 
-Lightweight architecture for mobile and local servers.
+MediPath AI addresses these challenges with a lightweight, AI-driven solution.
 
 ## 🌟 Features
 
-- Multilingual healthcare assistant with patient, nurse, and doctor modes
-- Intelligent analysis of medical test results and health records
-- Context-aware, role-specific recommendations
-- PDF/Document upload with validation and text extraction
-- Offline/low-bandwidth usage with lightweight deployment
-- Secure authentication and role-based access control
-- Report and interaction history for continuous patient support
-- Mobile-friendly, responsive design with real-time feedback
+~ Multilingual healthcare assistant (patients, nurses, doctors).  
+~ AI-powered analysis of medical reports (PDF upload supported).  
+~ Generative AI health insights via Groq LLMs.  
+~ Secure authentication using Supabase.  
+~ Persistent chat history and medical report storage.  
+~ Mobile-friendly & responsive Streamlit interface
+
 
 ## 🛠️ Tech Stack
+Language: Python 3.11  
+Frontend/UI: Streamlit.  
+Database & Auth: Supabase(PostgreSQL + Auth).  
+Generative AI: Groq API.  
+Document Processing: pdfplumber, custom validators.  
+Deployment: Streamlit
 
-Backend: Python, FastAPI, LangChain. 
-AI/NLP: OpenAI API, Hugging Face Transformers, spaCy. 
-Frontend: React.js / Next.js (planned). 
-Database: PostgreSQL / SQLite (lightweight option). 
-Deployment: Docker, Streamlit (for demos), Mobile-first PWA
+## ⚙️ Installation and Setup
+### 1. Clone the Repository
+git clone https://github.com/NedRaph/MediPath_AI---Guiding-Smarter-Healthcare-in-Low-Resource-Settings  
 
+
+### 2. Create and activate a Virtual Environment
+conda create -p venv python==3.11 -y  
+conda activate venv
+
+### 3. Install Dependencies
+pip install -r requirements.txt
+
+### 4. Set Up Supabase and Configure secrets.
+Create a Supabase project at supabase.com  
+Open the SQL Editor and run the schema script: (see script.sql inside the public/db folder)  
+Copy your Supabase credentials and add them (along with your Groq API key) into the secrets.toml file inside the .streamlit folder of the project.
+
+SUPABASE_URL = "your-supabase-url"  
+SUPABASE_KEY = "your-supabase-key"  
+GROQ_API_KEY = "your-groq-api-key"
+
+### 5. Run the Application
+streamlit run src/main.py  
+The app will launch at: http://localhost:8501
+
+## ▶️ Usage
+Sign up / log in (accounts stored in Supabase).  
+Create a new analysis session.  
+Upload a medical report (PDF) - AI generates analysis.  
+View personalized recommendations & save history.
+
+## Example Demo
+
+- Uploading a CBC report - AI highlights potential risks.
+- Lipid profile upload - AI suggests lifestyle changes.
+- Supports chat-like health Q&A with Generative AI.
+
+### Security & Privacy
+
+Supabase manages authentication & session handling.  
+Only validated medical reports (via validators.py) are accepted.
+
+
+## 📌 Future Improvements.
+To make MediPath-AI even more impactful, here are planned future improvements and features:
+
+1. Multilingual Support.  
+Expand communication beyond English to include Swahili, French, and local mother tongues, improving accessibility for diverse communities.
+
+2. Domain-Specialist Medical Knowledge. 
+Enhance AI prompts with curated knowledge bases and specialist-driven datasets for more accurate and context-aware medical insights.
+
+3. Role-Specific Dashboards.  
+Build customized interfaces for patients, nurses, and doctors, enabling each role to view relevant information and actions tailored to their needs.
+
+
+4. Offline-First Mode.  
+Introduce local caching and fallback models to allow healthcare workers to continue using the app in areas with poor or intermittent internet connectivity.
+
+## Contributing
+
+Contributions are Welcome! Please fork the repository and submit pull requests.
+
+# 🚨Disclaimer
+
+MediPath AI is not a replacement for medical professionals.  
+All insights are AI-generated and should be verified by qualified healthcare providers.
