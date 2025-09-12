@@ -1,7 +1,7 @@
 # 🩺 MediPath-AI
 # Guiding Smarter Healthcare in Low-Resource Settings.
-![page view](images\image_04.png)
-![page view 2](images\image_02.png)
+![page view](images/image_04.png)
+![page view 2](images/image_02.png)
 
 
 ## 📖 Overview.
